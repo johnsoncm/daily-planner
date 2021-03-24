@@ -22,11 +22,11 @@ var input = localStorage.getItem("form-control");
 
 
 if ((moment().format("h")) > 9 ){
-    $("hour-9").css("background-color", "gray");
+    $("hour-9").css(".past");
 } else if ((moment().format("h")) < 9){
-    $("hour-9").css("background-color" , "green");
+    $("hour-9").css(".future");
 } else if ((moment().format("h")) == 9){
-    $("hour-9").css("background-color", "red");
+    $("hour-9").css(".present");
 }else{
     alert("Error");
 }
