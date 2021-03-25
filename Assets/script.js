@@ -22,12 +22,16 @@ var input = localStorage.getItem("form-control");
 
 
 if ((moment().format("h")) > 9 ){
-    $("hour-9").css(".past");
+    $("textarea").addClass("past");
+    
 } else if ((moment().format("h")) < 9){
-    $("hour-9").css(".future");
+    $("textarea").addClass("future");
+
 } else if ((moment().format("h")) == 9){
-    $("hour-9").css(".present");
+    $("textarea").addClass("present");
+console.log("textarea");
 }else{
+
     alert("Error");
 }
 
