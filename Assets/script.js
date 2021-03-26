@@ -1,71 +1,62 @@
+
+//Set current day, date, and time in jumbotron
 var dayDate = moment();
 $("#currentDay").text(dayDate.format("dddd, MMMM Do YYYY h:mm:ss a"));   
 
 
-var input = $(this).siblings(".form-control").val();
-//Make row color green if in future, red if current and grey if past
 
-// if (dayDate = "some moment code");
-// //current red
-//     then $("some jquery code to style color red")
+
+function renderMessage(){
+    input = JSON.parse(localStorage.getItem("input"));
+    if(!localStorage.getItem('input')){
+        $window.localStorage.setItem('input' , JSON.stringify($scope.initData));
+        var inputDescription = document.querySelector("description")
+        inputDescription.textContent = input
+    }
+}
+
+
+
 
 $(".saveBtn").on("click", function(){
     //gets the value of user input
     var input = $(this).siblings(".form-control").val();
-    var hour = $(this).siblings().attr("hour");
-
-    localStorage.setItem("input" , input);
-    localStorage.setItem("hour" , hour);
-
-});
-var input = localStorage.getItem("form-control");
-
-
-if ((moment().format("h")) > 9 ){
-    $("textarea").addClass("past");
     
-} else if ((moment().format("h")) < 9){
-    $("textarea").addClass("future");
+    localStorage.setItem("input" , input);
+    
+});
+// var input = localStorage.getItem("form-control");
 
-} else if ((moment().format("h")) == 9){
-    $("textarea").addClass("present");
-console.log("textarea");
-}else{
-
-    alert("Error");
-}
+// function renderInput(){
 
 
-// function timeColor(){
-//     //access data-number to change color of time blocks when
-//     //past, present, future
 // }
 
 
+$(".time-block").each(function() {
+   
+    //setting hour to equal 9, 10, 11, 12, 1 etc.
+    //parsing out the hour from a string to a number in order to compare number to number vs number to string
+    
+var hour = parseInt($(this).data().number);
+  
+var currentTime = parseInt(moment().format("HH"))
 
-// $("#text-9").val(localStorage.getItem("hour-9"));
-// $("#text-10").val(localStorage.getItem("hour-10"));
-// $("#text-11").val(localStorage.getItem("hour-11"));
-// $("#text-12").val(localStorage.getItem("hour-12"));
-// $("#text-1").val(localStorage.getItem("hour-1"));
-// $("#text-2").val(localStorage.getItem("hour-2"));
-// $("#text-3").val(localStorage.getItem("hour-3"));
-// $("#text-4").val(localStorage.getItem("hour-4"));
-// $("#text-5").val(localStorage.getItem("hour-5"));
+    //  localStorage.setItem("hour" , hour);
+    //  console.log("hour" , hour);
+
+    if(currentTime > hour){
+        $(this).addClass("past");
+    } else if (currentTime < hour){
+        $(this).addClass("future");
+    } else {
+        $(this).addClass("present");
+    }  
+});
 
 
 
 
-
-
-
-
-
-
-// function renderMessage(){
-//     input = JSON.parse(localStorage.getItem("input"));
-// }
-// renderMessage();
 
 
 // function timeNow(){
