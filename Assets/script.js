@@ -7,15 +7,27 @@ $("#currentDay").text(dayDate.format("dddd, MMMM Do YYYY h:mm:ss a"));
 
 
 function renderMessage(){
-    input = JSON.parse(localStorage.getItem("input"));
+    // input = JSON.parse(localStorage.getItem("input"));
     if(!localStorage.getItem('input')){
         $window.localStorage.setItem('input' , JSON.stringify($scope.initData));
         var inputDescription = document.querySelector("description")
         inputDescription.textContent = input
+
+    localStorage.getItem("input" , input);
+    localStorage.getItem("hour-9" , input);
+    localStorage.getItem("hour-10" , input);
+    localStorage.getItem("hour-11" , input);
+    localStorage.getItem("hour-12" , input);
+    localStorage.getItem("hour-1" , input);
+    localStorage.getItem("hour-2" , input);
+    localStorage.getItem("hour-3" , input);
+    localStorage.getItem("hour-4" , input);
+    localStorage.getItem("hour-5" , input);
     }
 }
 
-
+let input = localStorage.getItem("input");
+console.log(input);
 
 
 $(".saveBtn").on("click", function(){
@@ -23,6 +35,16 @@ $(".saveBtn").on("click", function(){
     var input = $(this).siblings(".form-control").val();
     
     localStorage.setItem("input" , input);
+    localStorage.setItem("hour-9" , input);
+    localStorage.setItem("hour-10" , input);
+    localStorage.setItem("hour-11" , input);
+    localStorage.setItem("hour-12" , input);
+    localStorage.setItem("hour-1" , input);
+    localStorage.setItem("hour-2" , input);
+    localStorage.setItem("hour-3" , input);
+    localStorage.setItem("hour-4" , input);
+    localStorage.setItem("hour-5" , input);
+
     
 });
 // var input = localStorage.getItem("form-control");
@@ -51,11 +73,12 @@ var currentTime = parseInt(moment().format("HH"))
         $(this).addClass("future");
     } else {
         $(this).addClass("present");
+       
     }  
 });
 
-
-
+renderMessage();
+console.log((localStorage.getItem("input")));
 
 
 
