@@ -9,9 +9,10 @@ $("#currentDay").text(dayDate.format("dddd, MMMM Do YYYY h:mm:ss a"));
 function renderMessage(){
     // input = JSON.parse(localStorage.getItem("input"));
     if(!localStorage.getItem('input')){
-        $window.localStorage.setItem('input' , JSON.stringify($scope.initData));
-        var inputDescription = document.querySelector("description")
-        inputDescription.textContent = input
+        // window.localStorage.setItem('input' , JSON.stringify($scope.initData));
+        var inputDescription = document.querySelectorAll(".description")
+        inputDescription.value = input
+        document.write(input);
 
     localStorage.getItem("input" , input);
     localStorage.getItem("hour-9" , input);
