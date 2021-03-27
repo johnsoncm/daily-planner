@@ -2,6 +2,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   line-height: 1;
+
 }
 
 .description {
@@ -20,6 +21,7 @@ body {
   color: black;
   border-radius: 0;
   border-bottom: 10px solid black;
+  background:url(https://dcra.dc.gov/sites/default/files/u63232/schedule%20an%20appointment.jpg);
 }
 
 
@@ -69,7 +71,3 @@ body {
   transition: all 0.3s ease-in-out;
 }
 
-.form-contro {
-  margin-bottom: 8px;
-  height: 72px;
-}
