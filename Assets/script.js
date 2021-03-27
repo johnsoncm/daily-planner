@@ -19,14 +19,9 @@ $(document).ready(function () {
     function hourUpdater() {
         var hour = moment().hours();
         $(".time-block").each(function () {
-            //setting hour to equal 9, 10, 11, 12, 1 etc.
-            //parsing out the hour from a string to a number in order to compare number to number vs number to string
-            // var hour = parseInt($(this).data().number);
+                 //parsing out the number from the hour-number id
             var currentTime = parseInt($(this).attr("id").split("-")[1]);
-            // var currentTime = parseInt(moment().format("HH"))
-            //  localStorage.setItem("hour" , hour);
-            //  console.log("hour" , hour);
-
+       
             //determines time of day with time block and changes class colors accordingly
             if (currentTime < hour) {
                 $(this).addClass("past");
@@ -44,7 +39,7 @@ $(document).ready(function () {
         })
 };
     hourUpdater();
-    //
+    //Gets the saved input in local storage and displays in the description area
     var interval = setInterval(hourUpdater, 15000);
     $("#hour-9 .description").val(localStorage.getItem("hour-9"));
     $("#hour-10 .description").val(localStorage.getItem("hour-10"));
