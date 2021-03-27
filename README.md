@@ -1,9 +1,9 @@
 # **daily-planner**
 
-[Link to Website] ()
+[Link to Website] (https://johnsoncm.github.io/daily-planner/)
 
-**![Screenshot of Website] (./Assets/Calendar_App_1.png)**
-**![Screenshot of Website] (./Assets/Calendar_App_2.png)**
+**![Screenshot of Website](./Assets/Calendar_App_1.png)**
+**![Screenshot of Website](./Assets/Calendar_App_2.png)**
 
 
 
