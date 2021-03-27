@@ -3,32 +3,95 @@
 var dayDate = moment();
 $("#currentDay").text(dayDate.format("dddd, MMMM Do YYYY h:mm:ss a"));   
 
+var todos = [];
 
-
+var inputDescription = document.querySelectorAll(".description");
+var todoForm = document.querySelector(".time-block");
+var todoList = document.querySelector(".form-control");
+var todoSpan = document.querySelector(".col-md-10");
 
 function renderMessage(){
-    // input = JSON.parse(localStorage.getItem("input"));
-    if(!localStorage.getItem('input')){
-        // window.localStorage.setItem('input' , JSON.stringify($scope.initData));
-        var inputDescription = document.querySelectorAll(".description")
-        inputDescription.value = input
-        document.write(input);
 
-    localStorage.getItem("input" , input);
-    localStorage.getItem("hour-9" , input);
-    localStorage.getItem("hour-10" , input);
-    localStorage.getItem("hour-11" , input);
-    localStorage.getItem("hour-12" , input);
-    localStorage.getItem("hour-1" , input);
-    localStorage.getItem("hour-2" , input);
-    localStorage.getItem("hour-3" , input);
-    localStorage.getItem("hour-4" , input);
-    localStorage.getItem("hour-5" , input);
+    todoList.innerHTML = "";
+    todoSpan.textContent = todos.length;
+
+    for (var i = 0; i< todos.length; i++);{
+    var todo = todos[i];
+    console.log(todos);
+    console.log(todos.length);
+
+    var li = document.createElement("li");
+    li.textContent = todo;
+    li.setAttribute("data-index" , i);
+
+    var button = document.createElement("button");
+    button.textContent = "Saved";
+
+
+    li.appendChild(button);    
+    todoList.appendChild(li);
+} 
+};
+
+function init(){
+    var storedTodos = JSON.parse(localStorage.getItem("todos"));
+
+    if (storedTodos !== null){
+        todos = storedTodos;
     }
+    renderMessage();
 }
 
-let input = localStorage.getItem("input");
-console.log(input);
+function storedTodos() {
+    localStorage.setItem("todos" , JSON.stringify(todos));
+}
+
+todoForm.addEventListener("submit" , function(event){
+    event.preventDefault();
+
+    var todoText = inputDescription.trim();
+
+    if (todoText === ""){
+        return;
+    }
+
+    todos.push(todoText);
+    inputDescription.value = "";
+console.log(todoText);
+    storedTodos();
+    renderMessage();
+
+});
+
+todoList.addEventListener("click", function(event){
+    var element = event.target;
+
+    if (element.matches("button") === true){
+        var index = element.parentElement.getAttribute("data-index");
+        todos.splice(index, 1);
+
+        storedTodos();
+        renderMessage();
+
+    }
+});
+
+init()
+    
+
+
+
+// function renderMessage(){
+//     // input = JSON.parse(localStorage.getItem("input"));
+//     if(!localStorage.getItem('input')){
+//         window.localStorage.setItem('input' , JSON.stringify($scope.initData));
+//         var inputDescription = document.querySelectorAll(".description")
+//         inputDescription.value = input
+//         document.write(input);
+// }
+// // let input = localStorage.getItem("input");
+// // console.log(input);
+// }
 
 
 $(".saveBtn").on("click", function(){
@@ -50,7 +113,7 @@ $(".saveBtn").on("click", function(){
 });
 // var input = localStorage.getItem("form-control");
 
-// function renderInput(){
+// // function renderInput(){
 
 
 // }
@@ -78,7 +141,7 @@ var currentTime = parseInt(moment().format("HH"))
     }  
 });
 
-renderMessage();
+// renderMessage();
 console.log((localStorage.getItem("input")));
 
 
