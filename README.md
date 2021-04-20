@@ -2,6 +2,8 @@
 
 [Link to Website] (https://johnsoncm.github.io/daily-planner/)
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 **![Screenshot of Website](./Assets/Calendar_App_1.png)**
 **![Screenshot of Website](./Assets/Calendar_App_2.png)**
 
