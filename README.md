@@ -4,6 +4,9 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+## Usage
+Save and track your daily tasks
+
 **![Screenshot of Website](./Assets/Calendar_App_1.png)**
 **![Screenshot of Website](./Assets/Calendar_App_2.png)**
 
